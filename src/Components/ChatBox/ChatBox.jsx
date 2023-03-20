@@ -14,7 +14,7 @@ import Message from "../Message/Message";
 import io from 'socket.io-client';
 
 
-const socket = io.connect(`wss://https://connectifyapi.onrender.com`);
+const socket = io.connect(`wss://connectify.fun`);
 
 
 

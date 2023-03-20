@@ -1,4 +1,4 @@
-export const baseUrl = "https://connectifyapi.onrender.com/";
+export const baseUrl = "https://connectify.fun/";
 
 
 // urls
