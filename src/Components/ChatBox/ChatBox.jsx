@@ -7,7 +7,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import React, { useEffect, useRef, useState} from 'react';
-import UploadImage from "../UploadImage/UploadImage";
 import { useParams } from "react-router-dom";
 import {  useSelector } from "react-redux";
 import axios from '../../utils/axios';
@@ -15,7 +14,7 @@ import Message from "../Message/Message";
 import io from 'socket.io-client';
 
 
-const socket = io.connect("ws://localhost:6001");
+const socket = io.connect(`ws://connectifyapi.onrender.com`);
 
 
 
@@ -222,8 +221,6 @@ const ChatBox = () => {
                             
                     }} />
                 </Box>
-                <UploadImage open={openImageUpload} setOpen={setImageUpload} />
-
             </Card>
         </Box>
     );
