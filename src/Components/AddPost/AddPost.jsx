@@ -54,7 +54,7 @@ const AddPost = () => {
         }
         const response = await  axios.post(submitPost, formData, {
             headers: {
-                'Content-Type': 'multipart/form-data',
+                'Content-Type': 'aplication/json',
                  'Authorization': `Bearer ${token}`,
             }
         })
