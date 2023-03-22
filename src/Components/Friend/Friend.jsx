@@ -13,7 +13,6 @@ const Friend = ({userId, value }) => {
     const token = useSelector(state => state.token);
     const dispatch = useDispatch();
 
-
     const handleFollow = async (friendId) => {
         try {
             setLoading(true);

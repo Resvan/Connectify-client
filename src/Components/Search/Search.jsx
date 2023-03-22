@@ -31,7 +31,7 @@ const Search = () => {
         getUsers();
     },[])
     return (
-        <Box>
+        <Box display={"flex"}>
             <InputBase
                 sx={{backgroundColor:"white"}}
                 placeholder="Search..."
