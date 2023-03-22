@@ -74,7 +74,14 @@ const Rightbar = () => {
               <Typography margin={"0.5rem"} variant='h6' >
                 Suggestion For You
               </Typography>
-              <Box margin={"0.5rem"} >
+              <Box margin={"0.5rem"} sx={{
+                maxHeight: "70vh",
+                overflowX: "scroll",
+                "&::-webkit-scrollbar": {
+                  display: "none"
+                }
+
+              }} >
                 {
                   suggestions.map((user, i) => (
                     <Stack key={i} direction="row" justifyContent="space-between" alignItems="center">
