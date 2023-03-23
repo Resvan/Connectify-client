@@ -71,7 +71,7 @@ const NotificationItem = ({ notification }) => {
                   }} />
               }
               {
-                  notification?.type !== "like" | "Comment" && !followings?.includes(notification?.friend._id)  ? 
+                  notification?.type !== "like" | "comment" && !followings?.includes(notification?.friend._id)  ? 
                   <LoadingButton
                       size="small"
                       fullWidthonClick={() => handleFollow(notification?.friend._id)}
