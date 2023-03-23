@@ -57,8 +57,8 @@ const Navbar = () => {
   };
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
-  
-  
+
+
 
   return (
     <AppBar sx={{ backgroundColor: "rgba(39, 11, 96, 0.5)" }} position='sticky' >
@@ -66,25 +66,25 @@ const Navbar = () => {
         <Typography variant='h6' sx={{ display: { xs: "none", md: "block" } }}>
           Connectfy
         </Typography>
-        <Avatar src='https://res.cloudinary.com/dinc8ztk0/image/upload/v1678868414/icons8-connect-150_2_hofymj.png' sx={{ width: 30, height: 30,display: {xs: "block", md: "none" } }} onClick={toggleDrawer(true)} />
-         <LeftToggle state={state} setState={setState} />
-         <Search />
+        <Avatar src='https://res.cloudinary.com/dinc8ztk0/image/upload/v1678868414/icons8-connect-150_2_hofymj.png' sx={{ width: 30, height: 30, display: { xs: "block", md: "none" } }} onClick={toggleDrawer(true)} />
+        <LeftToggle state={state} setState={setState} />
+        <Search />
         <Icons>
           <DarkModeIcon onClick={() => dispatch(setMode())} color='white' />
           <Link to="/chats" style={{ color: 'white' }}>
-          <Badge badgeContent={4} color="error">
-            <Mail color="white" />
-          </Badge>
+            <Badge badgeContent={4} color="error">
+              <Mail color="white" />
+            </Badge>
           </Link>
           <Link to="/notifications" style={{ color: 'white' }}>
-          <Badge badgeContent={4} color="error">
-            <Notification color="white" />
-          </Badge>
+            <Badge badgeContent={4} color="error">
+              <Notification color="white" />
+            </Badge>
           </Link>
-          <Avatar   sx={{ width: 30, height: 30 }} src={user?.profilePic} onClick={e => setOpen(true)} />
+          <Avatar sx={{ width: 30, height: 30 }} src={user?.profilePic} onClick={e => setOpen(true)} />
         </Icons>
         <MobileIcons>
-          <DarkModeIcon onClick={() => dispatch(setMode())} color='white'  />
+          <DarkModeIcon onClick={() => dispatch(setMode())} color='white' />
           <Link to="/chats" style={{ color: 'white' }}>
             <Badge badgeContent={4} color="error">
               <Mail color="white" />
@@ -96,7 +96,7 @@ const Navbar = () => {
             </Badge>
           </Link>
           <Avatar sx={{ width: 30, height: 30 }} src={user?.profilePic} onClick={e => setOpen(true)} />
-      </MobileIcons>
+        </MobileIcons>
       </StyledToolbar>
       <Menu
         id="demo-positioned-menu"

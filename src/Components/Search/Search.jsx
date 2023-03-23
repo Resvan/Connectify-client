@@ -31,7 +31,7 @@ const Search = () => {
         getUsers();
     },[])
     return (
-        <Box display={"flex"}>
+        <Box >
             <InputBase
                 sx={{backgroundColor:"white"}}
                 placeholder="Search..."
@@ -39,9 +39,6 @@ const Search = () => {
                 onChange={(e) => setSearch(e.target.value)}
                 type="text"
             />
-            <IconButton>
-                <SearchIcon />
-            </IconButton>
             {search !== "" || open === true ? (
                 <Box
                     display="flex"

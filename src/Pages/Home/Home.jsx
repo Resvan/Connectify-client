@@ -9,11 +9,11 @@ import AddPost from '../../Components/AddPost/AddPost';
 const Home = () => {
   return (
     <Box >
-      <Stack direction="row" justifyContent="space-between" p={2} spacing={3} >
+      <Stack direction="row" justifyContent="space-between" p={{ md: 0 }} spacing={{ md: 3 }} >
         <Leftbar />
         <Feed />
-        <Rightbar/>
-      </Stack> 
+        <Rightbar />
+      </Stack>
       <AddPost />
     </Box>
   )

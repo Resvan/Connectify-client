@@ -10,6 +10,7 @@ import { getUserSuggestion, addFriend } from '../../utils/Constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { setSuggestedUsers, setUser } from '../../state';
+import { Link } from 'react-router-dom';
 
 const StyledCard = styled(Card)({
   "&::WebkitBoxShadow": `0px 0px 25px -10px rgba(0, 0, 0, 0.38)`,
@@ -23,7 +24,7 @@ const Rightbar = () => {
   const token = useSelector(state => state.token);
   const suggestions = useSelector(state => state.suggestUsers)
   const dispatch = useDispatch();
-  
+
   const getUsers = async () => {
     try {
       const { data } = await axios.get(getUserSuggestion, {
@@ -33,7 +34,7 @@ const Rightbar = () => {
         },
       })
 
-      dispatch(setSuggestedUsers({ suggestUsers: data}))
+      dispatch(setSuggestedUsers({ suggestUsers: data }))
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +42,7 @@ const Rightbar = () => {
 
   const handleFollow = async (friendId) => {
     try {
-      const {data} = await axios.patch(addFriend,{friendId}, {
+      const { data } = await axios.patch(addFriend, { friendId }, {
         headers: {
           "Content-Type": "application/json",
           'Authorization': `Bearer ${token}`,
@@ -54,11 +55,11 @@ const Rightbar = () => {
     }
   }
 
- 
-  
+
+
   useEffect(() => {
     getUsers();
-  },[])
+  }, [])
 
   return (
     <Box flex={2}
@@ -69,7 +70,7 @@ const Rightbar = () => {
           <Box>
             <StyledCard sx={{
               paddingInline: "1rem",
-              minWidth:"100%"
+              minWidth: "100%",
             }}>
               <Typography margin={"0.5rem"} variant='h6' >
                 Suggestion For You
@@ -81,20 +82,25 @@ const Rightbar = () => {
                   display: "none"
                 }
 
-              }} >
+              }}>
                 {
                   suggestions.map((user, i) => (
                     <Stack key={i} direction="row" justifyContent="space-between" alignItems="center">
-                      <Box marginTop="1rem" minWidth="max-content">
-                        <Stack direction="row" justifyContent="space-between" alignItems="center">
-                          <Avatar src={user?.profilePic} />
-                          <Typography variant='span' margin={1}>
-                            {user.username}
-                          </Typography>
-                        </Stack>
-                      </Box>
-                      <Box minWidth="max-content" sx={{marginTop:"1rem"}} >
-                        <Button variant="contained" onClick={()=>handleFollow(user._id)} size="small" >Follow</Button>
+                      <Link
+                        style={{ textDecoration: 'none', color: "inherit" }}
+                        to={`/profile/${user._id}`}
+                      >
+                        <Box marginTop="1rem" minWidth="max-content">
+                          <Stack direction="row" justifyContent="space-between" alignItems="center">
+                            <Avatar src={user?.profilePic} />
+                            <Typography variant='span' margin={1}>
+                              {user.username}
+                            </Typography>
+                          </Stack>
+                        </Box>
+                      </Link>
+                      <Box minWidth="max-content" sx={{ marginTop: "1rem" }} >
+                        <Button variant="contained" onClick={() => handleFollow(user._id)} size="small" >Follow</Button>
                       </Box>
                     </Stack>
                   ))
