@@ -36,7 +36,7 @@ const Profile = () => {
 
   return (
     <Box>
-      <Stack direction="row" justifyContent="space-between" p={1} spacing={2} >
+      <Stack direction="row" justifyContent="space-between" p={{ md: 0 }} spacing={{ md: 3 }} >
         <Leftbar />
           <ProfileComponent user={user}/>
         <Rightbar />
